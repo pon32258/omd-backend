@@ -23,7 +23,13 @@ exports.compareWater = function(firstDate, secondDate) {
           .then(() => {
             let differWater = firstDateData - secondDateData;
             resolve(differWater);
+          })
+          .catch(err => {
+            reject(err);
           });
+      })
+      .catch(err => {
+        reject(err);
       });
   });
 };
