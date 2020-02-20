@@ -1,11 +1,11 @@
-const GetWaterByDate = require('../controller/water/GetWaterByDate');
+const GetWater = require('../controller/water/GetWater');
 const AddWater = require('../controller/water/AddWater');
 const express = require('express');
 const router = express.Router();
 
 router.get('/getWater', (req, res) => {
   let date = req.query.date;
-  GetWaterByDate.getWaterByDate(date)
+  GetWater.getWaterByDate(date)
     .then(data => {
       res.send(data);
     })

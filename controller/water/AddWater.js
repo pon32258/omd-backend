@@ -3,7 +3,7 @@ const database = DB.db.database();
 
 exports.AddWater = function (waterData) {
   return new Promise((resolve, reject) => {
-    database.ref('water/' + waterData.date_th).set({
+    database.ref('Water/' + waterData.date_th).set({
         date_th: waterData.date_th,
         year_prev: waterData.year_prev,
         year_curr: waterData.year_curr,
