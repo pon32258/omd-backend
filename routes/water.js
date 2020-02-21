@@ -10,14 +10,12 @@ router.get('/getWater', (req, res) => {
       res.send(data);
     })
     .catch(err => {
-      console.log(err);
       res.send('Oops some thin is wrong');
     });
 });
 
 router.post('/saveWater', (req, res) => {
   let data = req.body;
-  console.log(data);
   AddWater.AddWater(data)
     .then(success => {
       res.send(success);
@@ -26,5 +24,26 @@ router.post('/saveWater', (req, res) => {
       res.send(err);
     });
 });
+
+router.get('/getWaters', (req, res) => {
+  let firstDate = req.query.firstDate;
+  let secondDate = req.query.secondDate;
+  let respond = [];
+  GetWater.getWater(firstDate)
+    .then((firstDateData) => {
+      respond.push(firstDateData);
+      return GetWater.getWater(secondDate);
+    })
+    .then((secondDateData) => {
+      respond.push(secondDateData);
+    })
+    .then(() => {
+      res.send(respond);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+
+})
 
 module.exports = router;
