@@ -1,16 +1,17 @@
 const GetWater = require('../controller/water/GetWater');
 const AddWater = require('../controller/water/AddWater');
+const Utils = require('../utils/utils');
 const express = require('express');
 const router = express.Router();
 
 router.get('/getWater', (req, res) => {
   let date = req.query.date;
-  GetWater.getWaterByDate(date)
+  GetWater.getWater(date)
     .then(data => {
-      res.send(data);
+      res.send(Utils.reArrangeData(data));
     })
     .catch(err => {
-      res.send('Oops some thin is wrong');
+      res.send(err);
     });
 });
 
