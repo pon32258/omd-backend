@@ -12,8 +12,9 @@ exports.reArrangeData = function(data){
         DAM_ID: dam.DAM_ID,
         DAM_GROUP: dam.DAM_GROUP,
         DAM_NAME: dam.DAM_Name,
-        DAM_Lat: dam.Lat,
-        DAM_Lon: dam.Lon,
+        DAM_Lat: dam.DAM_Lat,
+        DAM_Lon: dam.DAM_Lon,
+        DAM_Date: dam.DMD_Date,
         PERCENT_DMD_QUse: dam.PERCENT_DMD_QUse,
         DMD_Date_prev: dam.DMD_Date_prev,
         PERCENT_DMD_QUse_prev: dam.PERCENT_DMD_QUse_prev
@@ -25,6 +26,7 @@ exports.reArrangeData = function(data){
         dams: dams,
         sum:{
           sum_PERCENT_QUse: data.regions[i].sum.sum_PERCENT_QUse,
+          sum_PERCENT_QUse_prev: data.regions[i].sum.sum_PERCENT_QUse_prev
         }
       }
     );
