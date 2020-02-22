@@ -1,5 +1,6 @@
 const GetWater = require('../controller/water/GetWater');
 const AddWater = require('../controller/water/AddWater');
+const CompareWater = require('../controller/water/CompareWater');
 const Utils = require('../utils/utils');
 const express = require('express');
 const router = express.Router();
@@ -26,20 +27,13 @@ router.post('/saveWater', (req, res) => {
     });
 });
 
-router.get('/getWaters', (req, res) => {
+router.get('/compareWater', (req, res) => {
   let firstDate = req.query.firstDate;
   let secondDate = req.query.secondDate;
-  let respond = [];
-  GetWater.getWater(firstDate)
-    .then((firstDateData) => {
-      respond.push(firstDateData);
-      return GetWater.getWater(secondDate);
-    })
-    .then((secondDateData) => {
-      respond.push(secondDateData);
-    })
-    .then(() => {
-      res.send(respond);
+  CompareWater.compareWater(firstDate, secondDate)
+    .then((response) => {
+      console.log("response: " + response)
+      res.send(response);
     })
     .catch((err) => {
       res.send(err);
