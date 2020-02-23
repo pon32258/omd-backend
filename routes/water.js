@@ -1,5 +1,5 @@
 const GetWater = require('../controller/water/GetWater');
-const AddWater = require('../controller/water/AddWater');
+const SaveWater = require('../controller/water/SaveWater');
 const CompareWater = require('../controller/water/CompareWater');
 const express = require('express');
 const router = express.Router();
@@ -17,7 +17,7 @@ router.get('/getWater', (req, res) => {
 
 router.post('/saveWater', (req, res) => {
   let data = req.body;
-  AddWater.AddWater(data)
+  SaveWater.saveWater(data)
     .then(success => {
       res.send(success);
     })
