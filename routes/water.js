@@ -31,7 +31,6 @@ router.get('/compareWater', (req, res) => {
   let secondDate = req.query.secondDate;
   CompareWater.compareWater(firstDate, secondDate)
     .then((response) => {
-      console.log("response: " + response)
       res.send(response);
     })
     .catch((err) => {
