@@ -1,4 +1,5 @@
 const DB = require('../../config/db');
+const Utils = require('../../utils/utils');
 const database = DB.db.database();
 
 exports.getWater = function (date) {
@@ -8,6 +9,7 @@ exports.getWater = function (date) {
       'value',
       snapshot => {
         let data = snapshot.val();
+        data = Utils.reArrangeData(data);
         resolve(data);
       },
       err => {

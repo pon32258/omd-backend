@@ -84,6 +84,5 @@ exports.reArrangeCompareData = function (firstDateData, secondDateData) {
       sum_PERCENT_QUse_2: secondDateData.sum_all.sum_PERCENT_QUse
     }
   }
-  console.log(response)
   return response;
 }
