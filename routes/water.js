@@ -1,6 +1,7 @@
 const GetWater = require('../controller/water/GetWater');
 const SaveWater = require('../controller/water/SaveWater');
 const CompareWater = require('../controller/water/CompareWater');
+const Utils = require('../utils/utils');
 const express = require('express');
 const router = express.Router();
 
@@ -8,7 +9,7 @@ router.get('/getWater', (req, res) => {
   let date = req.query.date;
   GetWater.getWater(date)
     .then(data => {
-      res.send(data);
+      res.send(Utils.reArrangeData(data));
     })
     .catch(err => {
       res.send(err);

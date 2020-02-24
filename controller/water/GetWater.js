@@ -9,7 +9,6 @@ exports.getWater = function (date) {
       'value',
       snapshot => {
         let data = snapshot.val();
-        data = Utils.reArrangeData(data);
         resolve(data);
       },
       err => {

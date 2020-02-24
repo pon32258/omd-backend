@@ -2,6 +2,8 @@ const GetWater = require('./GetWater');
 const Utils = require('../../utils/utils');
 
 exports.compareWater = function (firstDate, secondDate) {
+    console.log(firstDate);
+    console.log(secondDate);
     return new Promise((resolve, reject) => {
         let firsDateData;
         GetWater.getWater(firstDate)
