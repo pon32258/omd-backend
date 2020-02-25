@@ -3,6 +3,7 @@ const DB = require('../../config/db');
 const database = DB.db.database();
 
 exports.saveWater = function (waterData) {
+  console.log(waterData);
   return new Promise((resolve, reject) => {
     database.ref('Water/' + waterData.date_th).set({
         date_th: waterData.date_th,

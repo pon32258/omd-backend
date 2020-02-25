@@ -23,6 +23,6 @@ app.listen(port, () => {
 })
 
 //saveDaily Water
-let daily = schedule.scheduleJob('30 5 * * *', () => {
+let daily = schedule.scheduleJob('30 * * * *', () => {
   SaveDailyWater.saveDailyWater();
 });
