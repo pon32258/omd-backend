@@ -58,8 +58,9 @@ exports.reArrangeCompareData = function (firstDateData, secondDateData) {
         DAM_Province: damProvince[firstDateData.regions[i].dams[j].DAM_Name].Dam_Province,
         DAM_Lat: firstDateData.regions[i].dams[j].DAM_Lat,
         DAM_Lon: firstDateData.regions[i].dams[j].DAM_Lon,
-        DAM_Date: firstDateData.regions[i].dams[j].DMD_Date,
+        DAM_Date_1: firstDateData.regions[i].dams[j].DMD_Date,
         PERCENT_DMD_QUse_1: firstDateData.regions[i].dams[j].PERCENT_DMD_QUse,
+        DAM_Date_2: secondDateData.regions[i].dams[j].DMD_Date,
         PERCENT_DMD_QUse_2: secondDateData.regions[i].dams[j].PERCENT_DMD_QUse
 
       }
@@ -69,8 +70,10 @@ exports.reArrangeCompareData = function (firstDateData, secondDateData) {
       region_name: firstDateData.regions[i].region_name,
       dams: dams,
       sum: {
+        date_1: firstDateData.date_th,
         sum_PERCENT_QUse_1: firstDateData.regions[i].sum.sum_PERCENT_QUse,
-        sum_PERCENT_QUse_2: secondDateData.regions[i].sum.sum_PERCENT_QUse_prev
+        date_2: secondDateData.date_th,
+        sum_PERCENT_QUse_2: secondDateData.regions[i].sum.sum_PERCENT_QUse
       }
     });
   }
@@ -80,7 +83,9 @@ exports.reArrangeCompareData = function (firstDateData, secondDateData) {
     date_2: secondDateData.date_th,
     regions: regions,
     sum_all: {
+      date_1: firstDateData.date_th,
       sum_PERCENT_QUse_1: firstDateData.sum_all.sum_PERCENT_QUse,
+      date_2: secondDateData.date_th,
       sum_PERCENT_QUse_2: secondDateData.sum_all.sum_PERCENT_QUse
     }
   }
