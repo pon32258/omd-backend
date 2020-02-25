@@ -1,5 +1,4 @@
 const DB = require('../../config/db');
-const Utils = require('../../utils/utils');
 const database = DB.db.database();
 
 exports.getWater = function (date) {
