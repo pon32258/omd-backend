@@ -12,7 +12,7 @@ router.get('/getWater', (req, res) => {
       res.send(Utils.reArrangeData(data));
     })
     .catch(err => {
-      res.send(err);
+      res.status(500).send(err);
     });
 });
 
@@ -23,7 +23,7 @@ router.post('/saveWater', (req, res) => {
       res.send(success);
     })
     .catch(err => {
-      res.send(err);
+      res.status(500).send(err);
     });
 });
 
@@ -35,7 +35,7 @@ router.get('/compareWater', (req, res) => {
       res.send(response);
     })
     .catch((err) => {
-      res.send(err);
+      res.status(500).send(err);
     })
 
 })

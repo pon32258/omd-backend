@@ -15,7 +15,8 @@ const waterRoutes = require('./routes/water');
 
 app.use(cors());
 
-app.use('/', waterRoutes);
+app.use('/water', waterRoutes);
+app.use(express.static('dist'));
 
 
 app.listen(port, () => {
@@ -23,6 +24,6 @@ app.listen(port, () => {
 })
 
 //saveDaily Water
-let daily = schedule.scheduleJob('30 * * * *', () => {
+let daily = schedule.scheduleJob(process.env.SCHEDULE, () => {
   SaveDailyWater.saveDailyWater();
 });
